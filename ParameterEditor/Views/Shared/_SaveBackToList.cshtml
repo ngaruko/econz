@@ -1,0 +1,29 @@
+﻿<p>
+            <button onclick="alert('Data saved')"> @Ajax.ActionLink("Save","Index",
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })                                               
+
+                                   </button>
+        </p>
+   
+
+
+
+<div>
+   
+    <button> @Ajax.ActionLink("Back to List","Index", 
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })                                               
+
+                                   </button>
+</div>

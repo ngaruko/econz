@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title Exercise 2</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/themes/base/css")
+
+        @Styles.Render("~/Content/css")
+
+        @Scripts.Render("~/bundles/modernizr")
+
+        <script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("Industry Connect", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    
+                    <nav>
+                        <ul id="menu">
+                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                            <li>
+                                @Ajax.ActionLink( "Books", "Index", "Book", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            <li
+                                >@Ajax.ActionLink( "Celebrities", "Index", "Celebrity", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            <li>
+                                @Ajax.ActionLink( "Countries", "Index", "Country", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            
+                           
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Bede Ngaruko</p>
+                </div>
+                <div class="float-right">
+                    
+                    <nav>
+                        <ul id="menu1">
+                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                            <li>
+                                @Ajax.ActionLink( "Books", "Index", "Book", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            <li
+                                >@Ajax.ActionLink( "Celebrities", "Index", "Celebrity", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            <li>
+                                @Ajax.ActionLink( "Countries", "Index", "Country", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "contentList",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })   
+
+                            </li>
+
+                            
+                           
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/mybundle")
+        
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

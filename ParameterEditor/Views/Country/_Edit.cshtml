@@ -1,0 +1,44 @@
+﻿@model ParameterEditor.Models.Country
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Country</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Time_Zone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Time_Zone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Count)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Count)
+    </div>
+
+    <div>
+        @Html.Partial("_SaveBackToList")
+    </div>
+</fieldset>
+

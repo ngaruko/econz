@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParametersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ParametersModelStoreContainer">
+    <EntitySet Name="Book" EntityType="ParametersModel.Store.Book" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Celebrity" EntityType="ParametersModel.Store.Celebrity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Country" EntityType="ParametersModel.Store.Country" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Author" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="Genre" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Publication" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Celebrity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Profession" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="Awards" Type="int" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Name" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="Time Zone" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

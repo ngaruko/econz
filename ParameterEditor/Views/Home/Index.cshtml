@@ -1,0 +1,72 @@
+﻿@using PagedList;
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+    
+
+    <title>Parameters</title>
+</head>
+<div id="drop-down">
+
+    <strong>Parameter Type:  </strong>
+    
+
+    
+    @Html.DropDownList(
+    "url",
+    new SelectList(new[]
+    {
+        new SelectListItem { Text = "Books", Value = Url.Action("Index", "Book") },
+        new SelectListItem { Text = "Countries", Value = Url.Action("Index", "Country") },
+        new SelectListItem { Text = "Celebrities", Value = Url.Action("Index", "Celebrity") },
+    }, "Value", "Text"),
+    "-- Pick one here ---",
+    new { id = "urlddl" }
+)
+
+</div>
+
+<br /><br />
+    
+<div id="contentList" >
+   
+ <h3>
+     @ViewBag.message
+    
+ </h3>
+      
+
+ </div>
+
+
+
+<script>
+
+    $(function () {
+        $('#urlddl').change(function () {
+            var url = $(this).val();
+            if (url != null && url != '') {
+               // window.location.href = url;
+
+
+                //var myContents = document.getElementById("UrlList").value;
+                $("#contentList").load(url);
+            }
+        });
+    });
+
+</script>
+
+
+
+ 
+   
+
+
+
+
+       
+   

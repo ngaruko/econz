@@ -1,0 +1,22 @@
+﻿@using PagedList;
+@model IPagedList<ParameterEditor.Models.Book>
+
+
+
+ 
+   
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+
+
+    <div id="itemList" >
+   
+ 
+         @Html.Partial("_Books", Model)
+
+    </div>
+
+
+
+
+
+   

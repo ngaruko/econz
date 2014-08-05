@@ -1,0 +1,23 @@
+﻿<div>
+      
+
+    @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new{page}),
+         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+         new PagedListRenderOptions {
+                            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+				       		DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+							DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+							DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                            LinkToPreviousPageFormat = "«",
+			                LinkToNextPageFormat = "»",
+                            LinkToFirstPageFormat="First",
+			                LinkToLastPageFormat = "Last",
+				       		DisplayLinkToIndividualPages = false,
+				       		DisplayItemSliceAndTotal = true,
+                            
+                            ItemSliceAndTotalFormat = "{0} - {1} of {2}."
+         }, 
+         new AjaxOptions(){  HttpMethod = "GET", UpdateTargetId = "contentList"}))
+  
+   
+   </div>

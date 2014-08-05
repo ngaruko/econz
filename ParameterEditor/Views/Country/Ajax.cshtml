@@ -1,0 +1,61 @@
+﻿@using PagedList;
+@using GridMvc.Html
+
+@model IPagedList<ParameterEditor.Models.Celebrity>
+
+
+
+<div id="celebrityList">
+    
+ <div class="row">
+        
+
+        <div class="col-md-12">
+
+   
+                              
+            <p><button>@Html.ActionLink("Add Parameter", "Create", "Celebrity", new { style = "text-decoration:none" }, null)</button></p>
+       
+        
+        
+            <div style="width:700px;">
+                
+                @Html.Grid(Model).Columns(columns => 
+                        {
+
+                            columns.Add(c => c.Id).Titled("ID")
+                                .Sanitized(false)
+                                .Encoded(false)
+                                .RenderValueAs(c => Ajax.ActionLink(c.Id.ToString(), "Edit", "Celebrity", new { c.Id },
+                                   new AjaxOptions { UpdateTargetId = "celebrityList", HttpMethod = "Get", InsertionMode = InsertionMode.Replace }));
+                                //.RenderValueAs(c => Html.ActionLink(c.Id.ToString(), "Edit", "Celebrity", new { Id = c.Id }, null).ToHtmlString());
+                            columns.Add(c => c.FirstName).Titled("First Name").Filterable(true);
+                            columns.Add(c => c.LastName).Titled("Last Name");
+                            columns.Add(c => c.Profession).Titled("Profession");
+                            columns.Add(c => c.Age).Titled("Age");
+                            columns.Add(c => c.Awards).Titled("Awards");
+
+                            columns.Add().Titled("")
+                                .Sanitized(false).Encoded(false)
+                        
+                                .RenderValueAs(c => Html.ActionLink("Delete", "Delete", "Celebrity", new { Id = c.Id }, null).ToHtmlString());
+                        
+                        }).Sortable(true)
+                </div>
+         
+             </div>
+     </div>
+         
+  </div>
+     
+
+
+
+
+
+
+
+
+  
+
+

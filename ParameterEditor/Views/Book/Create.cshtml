@@ -1,0 +1,17 @@
+﻿@model ParameterEditor.Models.Book
+
+@{
+    ViewBag.Title = "Add a book";
+}
+
+<h2>Add a book</h2>
+
+@Html.Partial("_Create",Model)
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+   
+}

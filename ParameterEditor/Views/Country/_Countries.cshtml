@@ -1,0 +1,88 @@
+﻿
+@using PagedList;
+
+@model IPagedList<ParameterEditor.Models.Country>
+
+             
+       <div id="gridContent"> 
+
+                   <button> @Ajax.ActionLink( "Add a  country", "Create", "country", null,
+                                               
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "gridContent",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               })                                               
+
+                 </button> <br>           
+@{
+    int pageSize=50;
+    
+    
+    var grid = new WebGrid(canPage: true, rowsPerPage:pageSize, canSort: true, ajaxUpdateContainerId: "gridContent");
+   
+    grid.Bind(Model,rowCount:Model.TotalItemCount,autoSortAndPage:true);
+  
+   
+    @grid.GetHtml(
+            htmlAttributes: new { id="webGrid" },
+            tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+                
+                         grid.Column("ID", format: (item) => Ajax.ActionLink(
+                                               (string)item.Id.ToString(), 
+                                               "Edit", 
+                                               new { item.Id },
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "gridContent",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               }
+                                               )),
+                     
+                        grid.Column("Code"),
+                        grid.Column("Name"),
+                        grid.Column("Time_Zone", "Time Zone"),
+                        grid.Column("Count"),
+                       
+                         grid.Column("", format: (item) => Ajax.ActionLink(
+                                               "Delete", 
+                                               "Delete", 
+                                               new { item.Id },
+                                               new AjaxOptions
+                                               {
+                                                   UpdateTargetId = "gridContent",
+                                                   HttpMethod = "Get",
+                                                   InsertionMode = InsertionMode.Replace
+                                               }
+                                               ))
+                        ));
+}
+   
+           </div> 
+                        
+               
+         
+
+<div>
+
+       @Html.Partial("_Pager")
+</div>
+
+     
+
+
+
+
+
+
+
+
+  
+
+

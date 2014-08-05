@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ParametersModelStoreContainer" CdmEntityContainer="ParametersEntities">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="ParametersModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Publication" ColumnName="Publication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Celebrities">
+      <EntityTypeMapping TypeName="ParametersModel.Celebrity">
+        <MappingFragment StoreEntitySet="Celebrity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="Awards" ColumnName="Awards" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ParametersModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Time_Zone" ColumnName="Time Zone" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

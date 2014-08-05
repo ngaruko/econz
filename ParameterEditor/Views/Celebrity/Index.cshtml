@@ -1,0 +1,21 @@
+﻿@using PagedList;
+@model IPagedList<ParameterEditor.Models.Celebrity>
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+
+
+    <div id="itemList">
+   
+ 
+         @Html.Partial("_Celebrity", Model)
+
+    </div>
+
+
+
+
+    
+
+   

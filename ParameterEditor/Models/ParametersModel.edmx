@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ParametersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ParametersModelStoreContainer">
+          <EntitySet Name="Book" EntityType="ParametersModel.Store.Book" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Celebrity" EntityType="ParametersModel.Store.Celebrity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="ParametersModel.Store.Country" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Author" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Genre" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Publication" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Celebrity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Profession" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Awards" Type="int" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Time Zone" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ParametersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ParametersEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Books" EntityType="ParametersModel.Book" />
+          <EntitySet Name="Celebrities" EntityType="ParametersModel.Celebrity" />
+          <EntitySet Name="Countries" EntityType="ParametersModel.Country" />
+        </EntityContainer>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Author" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Genre" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Publication" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Celebrity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Profession" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Awards" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Time_Zone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParametersModelStoreContainer" CdmEntityContainer="ParametersEntities">
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="ParametersModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Publication" ColumnName="Publication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Celebrities">
+            <EntityTypeMapping TypeName="ParametersModel.Celebrity">
+              <MappingFragment StoreEntitySet="Celebrity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="Awards" ColumnName="Awards" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="ParametersModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Time_Zone" ColumnName="Time Zone" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

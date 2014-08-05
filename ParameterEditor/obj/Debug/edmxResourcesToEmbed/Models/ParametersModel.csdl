@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParametersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ParametersEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="ParametersModel.Book" />
+    <EntitySet Name="Celebrities" EntityType="ParametersModel.Celebrity" />
+    <EntitySet Name="Countries" EntityType="ParametersModel.Country" />
+  </EntityContainer>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Publication" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Celebrity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Profession" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="Awards" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="Time_Zone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>
